@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk:19-jdk-alpine3.16
 
 ARG RELEASE=2.24.0
 ARG ALLURE_REPO=https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
