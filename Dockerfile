@@ -1,12 +1,11 @@
-FROM openjdk:19-jdk-alpine3.16
+FROM openjdk:22-slim-bullseye
 
 ARG RELEASE=2.24.0
 ARG ALLURE_REPO=https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline
 
 RUN echo $RELEASE && \
-    apk update && \
-    apk add --no-cache bash wget unzip && \
-    rm -rf /var/cache/apk/*
+    apt-get update && \
+    apt-get install -y bash wget unzip
 
 RUN wget --no-verbose -O /tmp/allure-$RELEASE.tgz $ALLURE_REPO/$RELEASE/allure-commandline-$RELEASE.tgz && \
     tar -xf /tmp/allure-$RELEASE.tgz && \
